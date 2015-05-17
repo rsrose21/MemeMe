@@ -24,6 +24,20 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
         //maintain proportions for image display in UIImageView
         self.imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //disable camera button if device does not support it
+        self.cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        // Subscribe to keyboard notifications to allow the view to raise when necessary
+        self.subscribeToKeyboardNotifications()
+    }
+    
+    // Unsubscribe
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.unsubscribeFromKeyboardNotifications()
+    }
 
     //ImagePicker delegate methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
@@ -38,12 +52,57 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
     {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    //End ImagePicker delegate methods
     
-    @IBAction func pickAnImage(sender: AnyObject) {
+    //helper method to open imagePicker
+    func pickAnImage(type: NSString) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        if type == "camera" {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        } else {
+            //use photo library as source if camera disabled, album selected or the type is unknown
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        println(type)
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
+    
+    //toolbar button actions
+    @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
+        self.pickAnImage("camera")
+    }
 
+    @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
+        self.pickAnImage("album")
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    //helper method to get the keyboard height from the notification’s userInfo dictionary
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.CGRectValue().height
+    }
+    
+    //shift view when keyboard displays so we don't obscure the text field
+    func keyboardWillShow(notification: NSNotification) {
+        if bottomText.isFirstResponder() {
+            println("adjust keyboard")
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
 }
 

@@ -21,11 +21,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" placeholder="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hCo-Bx-c2D" userLabel="Bottom Text">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hCo-Bx-c2D" userLabel="Bottom Text">
                                 <rect key="frame" x="16" y="495" width="568" height="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="alphabet" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" placeholder="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hXw-gy-clD" userLabel="Top Text">
                                 <rect key="frame" x="16" y="28" width="568" height="36"/>
@@ -39,11 +39,15 @@
                                     <barButtonItem systemItem="flexibleSpace" id="Prf-s3-sLo"/>
                                     <barButtonItem systemItem="camera" id="Jvr-bq-g7Z">
                                         <connections>
-                                            <action selector="pickAnImage:" destination="vXZ-lx-hvc" id="9Ol-Bs-g4C"/>
+                                            <action selector="pickAnImageFromCamera:" destination="vXZ-lx-hvc" id="yBO-e2-S4W"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="12" systemItem="fixedSpace" id="ftX-4g-dEV"/>
-                                    <barButtonItem title="Album" id="7QC-u3-Yxv"/>
+                                    <barButtonItem title="Album" id="7QC-u3-Yxv">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="vXZ-lx-hvc" id="OhS-A8-EKp"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="gBT-7j-Gjs"/>
                                 </items>
                             </toolbar>
