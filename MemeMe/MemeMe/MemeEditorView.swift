@@ -40,6 +40,9 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
         self.topText.textAlignment = NSTextAlignment.Center;
         self.bottomText.textAlignment = NSTextAlignment.Center;
         
+        //disable actionButton until we have a Meme
+        self.actionButton.enabled = false
+        
         //maintain proportions for image display in UIImageView
         self.imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
     }
@@ -64,6 +67,7 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         //set selected image and fill size
         self.imagePickerView.image = image
+        self.actionButton.enabled = true
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

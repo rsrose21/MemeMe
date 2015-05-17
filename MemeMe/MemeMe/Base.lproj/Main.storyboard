@@ -27,7 +27,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="alphabet" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" placeholder="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hXw-gy-clD" userLabel="Top Text">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hXw-gy-clD" userLabel="Top Text">
                                 <rect key="frame" x="16" y="68" width="568" height="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
@@ -42,7 +42,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="Ara-6Q-IBb"/>
-                                    <barButtonItem systemItem="cancel" id="AwT-Wl-NeJ"/>
+                                    <barButtonItem title="Cancel" id="AwT-Wl-NeJ"/>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNc-c1-bZz">
@@ -78,7 +78,7 @@
                             <constraint firstItem="hXw-gy-clD" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="l7d-Fy-aJZ"/>
                             <constraint firstItem="3gZ-gu-oR8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="prL-pm-trh"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="DNc-c1-bZz" secondAttribute="bottom" id="qAP-cC-koh"/>
-                            <constraint firstItem="hXw-gy-clD" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="zun-P1-Vq8"/>
+                            <constraint firstItem="hXw-gy-clD" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="zun-P1-Vq8"/>
                         </constraints>
                     </view>
                     <connections>
