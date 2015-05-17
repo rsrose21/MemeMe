@@ -28,11 +28,23 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="alphabet" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" placeholder="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hXw-gy-clD" userLabel="Top Text">
-                                <rect key="frame" x="16" y="28" width="568" height="36"/>
+                                <rect key="frame" x="16" y="68" width="568" height="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ob-Bc-aSU">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="orC-gY-zxM">
+                                        <connections>
+                                            <action selector="shareMeme:" destination="vXZ-lx-hvc" id="6km-xq-dj3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="Ara-6Q-IBb"/>
+                                    <barButtonItem systemItem="cancel" id="AwT-Wl-NeJ"/>
+                                </items>
+                            </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNc-c1-bZz">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
@@ -70,11 +82,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="orC-gY-zxM" id="rLM-sl-BwW"/>
                         <outlet property="albumButton" destination="7QC-u3-Yxv" id="hY7-82-6Nh"/>
                         <outlet property="bottomText" destination="hCo-Bx-c2D" id="8jl-c5-x6k"/>
+                        <outlet property="bottomToolbar" destination="DNc-c1-bZz" id="s9K-OQ-beQ"/>
                         <outlet property="cameraButton" destination="Jvr-bq-g7Z" id="Kod-01-603"/>
                         <outlet property="imagePickerView" destination="3gZ-gu-oR8" id="k13-Ps-FAs"/>
                         <outlet property="topText" destination="hXw-gy-clD" id="um7-xD-CLy"/>
+                        <outlet property="topToolbar" destination="7Ob-Bc-aSU" id="9sM-1t-V7X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
