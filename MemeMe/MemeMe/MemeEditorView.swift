@@ -8,8 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MemeEditorView: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var topText: UITextField!
+    @IBOutlet weak var bottomText: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
