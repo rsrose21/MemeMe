@@ -14,6 +14,7 @@
 		3D2B6C301B08BF2E004FABDB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2B6C2E1B08BF2E004FABDB /* LaunchScreen.xib */; };
 		3D2B6C3C1B08BF2E004FABDB /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2B6C3B1B08BF2E004FABDB /* MemeMeTests.swift */; };
 		3D2B6C461B094782004FABDB /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2B6C451B094782004FABDB /* Meme.swift */; };
+		3DA86A9D1B0AC7DF00401087 /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA86A9C1B0AC7DF00401087 /* MemeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		3D2B6C3A1B08BF2E004FABDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D2B6C3B1B08BF2E004FABDB /* MemeMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeTests.swift; sourceTree = "<group>"; };
 		3D2B6C451B094782004FABDB /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
+		3DA86A9C1B0AC7DF00401087 /* MemeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				3D2B6C2E1B08BF2E004FABDB /* LaunchScreen.xib */,
 				3D2B6C231B08BF2E004FABDB /* Supporting Files */,
 				3D2B6C451B094782004FABDB /* Meme.swift */,
+				3DA86A9C1B0AC7DF00401087 /* MemeTableViewController.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				3D2B6C461B094782004FABDB /* Meme.swift in Sources */,
 				3D2B6C281B08BF2E004FABDB /* MemeEditorView.swift in Sources */,
 				3D2B6C261B08BF2E004FABDB /* AppDelegate.swift in Sources */,
+				3DA86A9D1B0AC7DF00401087 /* MemeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +417,7 @@
 				3D2B6C411B08BF2E004FABDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D2B6C421B08BF2E004FABDB /* Build configuration list for PBXNativeTarget "MemeMeTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				3D2B6C441B08BF2E004FABDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
