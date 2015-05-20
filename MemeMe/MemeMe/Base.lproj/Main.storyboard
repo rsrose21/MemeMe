@@ -5,6 +5,38 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="Wz5-zx-iko">
+            <objects>
+                <viewController id="SeH-uT-PN2" customClass="MemeDetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bda-8G-i4y"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ama-NQ-GCW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cMX-Yp-Tc2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SmY-Di-GS1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SmY-Di-GS1" firstAttribute="top" secondItem="cMX-Yp-Tc2" secondAttribute="topMargin" id="AXh-QF-mtA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SmY-Di-GS1" secondAttribute="trailing" constant="-16" id="IL1-Rg-R2h"/>
+                            <constraint firstItem="SmY-Di-GS1" firstAttribute="leading" secondItem="cMX-Yp-Tc2" secondAttribute="leadingMargin" constant="-16" id="KSP-a7-wkZ"/>
+                            <constraint firstItem="Ama-NQ-GCW" firstAttribute="top" secondItem="SmY-Di-GS1" secondAttribute="bottom" id="OTA-Hn-lbc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailView" destination="SmY-Di-GS1" id="pbM-fZ-nIr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iI5-Y3-rUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1361" y="106"/>
+        </scene>
         <!--Meme Editor View-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -99,7 +131,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="imw-zu-ih6">
             <objects>
-                <tabBarController id="eEe-Xp-oOt" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="eEe-Xp-oOt" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="PEf-9H-OiW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -108,11 +140,61 @@
                     </tabBar>
                     <connections>
                         <segue destination="kTI-md-d1f" kind="relationship" relationship="viewControllers" id="c7U-li-Lyf"/>
+                        <segue destination="tAJ-oh-riv" kind="relationship" relationship="viewControllers" id="U9v-lw-jbF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lhl-bA-2Bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-747" y="107"/>
+        </scene>
+        <!--Meme Collection View Controller-->
+        <scene sceneID="jMt-g7-dES">
+            <objects>
+                <viewController storyboardIdentifier="Meme Collection View Controller" id="tAJ-oh-riv" customClass="MemeCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SSQ-tn-ZgL"/>
+                        <viewControllerLayoutGuide type="bottom" id="iBr-dG-Oa9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dVf-ZE-yIF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nZA-UM-ttp">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hrg-T6-5YB">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionCell" id="IJn-Xe-Xa4" customClass="MemeCollectionCell" customModule="MemeMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHh-I0-SYW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Grid" id="86N-ag-Mbw"/>
+                    <connections>
+                        <outlet property="collectionView" destination="nZA-UM-ttp" id="MLy-PU-mrK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="enJ-gC-2Ov" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-404" y="960"/>
         </scene>
         <!--Meme Table View Controller-->
         <scene sceneID="eoL-fV-uxf">
@@ -135,6 +217,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GqO-J5-DZH" id="TsF-ZU-z4d">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="SeH-uT-PN2" kind="show" id="0rI-sQ-akm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -178,6 +263,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Grid" width="30" height="30"/>
         <image name="Table" width="30" height="30"/>
     </resources>
 </document>

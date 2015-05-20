@@ -142,7 +142,15 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let memeImage = generateMemedImage()
         self.saveMeme(memeImage)
         let activityViewController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
-        self.presentViewController(activityViewController, animated: true) { () -> Void in
+        
+        // When finished, go to the tab bar controller
+        activityViewController.completionWithItemsHandler = {
+            (s: String!, ok: Bool, items: [AnyObject]!, err:NSError!) -> Void in
+            self.navToTabBarController()
+        }
+        
+        self.presentViewController(activityViewController, animated: true) {
+            () -> Void in
         }
     }
     
@@ -153,7 +161,6 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(newMeme)
-        
     }
     
     // Create a UIImage that combines the Image View and the Textfields
@@ -174,6 +181,14 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
         self.bottomToolbar.hidden = false
         
         return memedImage
+    }
+    
+    // Navigate the user to the Tab Bar Controller (TableView and CollectionView)
+    func navToTabBarController() {
+        var tbc:UITabBarController
+        tbc = self.storyboard?.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+        
+        presentViewController(tbc, animated: true, completion: nil)
     }
 }
 
