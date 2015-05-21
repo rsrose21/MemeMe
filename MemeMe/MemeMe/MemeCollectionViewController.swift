@@ -39,15 +39,14 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDelegate, 
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-        if segue.identifier == "toMemeDetailView"
-        {
-            let detailVC = segue.destinationViewController as! MemeDetailViewController
-            var memeIndex = self.collectionView.indexPathForCell(sender as! MemeCollectionCell)?.row
-            detailVC.savedMeme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[memeIndex!]
-        }
-        
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        println(indexPath.row)
+        //set data for view controller
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")! as! MemeDetailViewController
+        detailController.savedMeme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
+        println(detailController.savedMeme.bottomText)
+        // Open detailViewController
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
     
     func setCell(cell: MemeCollectionCell, topText:String, bottomText:String, backgroundImage:UIImage)

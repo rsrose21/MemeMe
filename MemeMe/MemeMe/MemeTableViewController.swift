@@ -5,7 +5,7 @@
 //  Created by Ryan Rose on 5/18/15.
 //  Copyright (c) 2015 GE. All rights reserved.
 //
-
+import Foundation
 import UIKit
 
 class MemeTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -35,4 +35,15 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println(indexPath.row)
+        //set data for view controller
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")! as! MemeDetailViewController
+        detailController.savedMeme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
+        println(detailController.savedMeme.bottomText)
+        // Open detailViewController
+        self.navigationController!.pushViewController(detailController, animated: true)
+    }
+
 }
