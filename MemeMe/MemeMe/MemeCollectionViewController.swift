@@ -13,8 +13,6 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDelegate, 
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var memes: [Meme]!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,16 +24,24 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDelegate, 
         self.collectionView.reloadData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.collectionView!.reloadData()
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes.count
     }
-    
+
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionCell", forIndexPath: indexPath) as! MemeCollectionCell
-        cell.topLabel.text = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.item].topText
-        cell.bottomLabel.text = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.item].bottomText
-        cell.memeImageView.image = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.item].image!
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionCell", forIndexPath: indexPath) as! MemeCollectionCell
+        let meme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+        println(meme)
+        println(meme[indexPath.item].topText)
+        //set the image
+        cell.memeImage.image = meme[indexPath.item].memedImage!
+        
         return cell
     }
     
@@ -47,13 +53,6 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDelegate, 
         println(detailController.savedMeme.bottomText)
         // Open detailViewController
         self.navigationController!.pushViewController(detailController, animated: true)
-    }
-    
-    func setCell(cell: MemeCollectionCell, topText:String, bottomText:String, backgroundImage:UIImage)
-    {
-        cell.topLabel.text = topText
-        cell.bottomLabel.text = bottomText
-        cell.memeImageView.image = backgroundImage
     }
     
 }

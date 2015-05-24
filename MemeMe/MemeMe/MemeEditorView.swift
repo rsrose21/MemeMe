@@ -158,9 +158,7 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
     {
         var newMeme = Meme(topText: self.topText.text!, bottomText: self.bottomText.text!, image: self.imagePickerView.image!, memedImage: memedImage)
         //save generated Meme to shared model
-        let object = UIApplication.sharedApplication().delegate
-        let appDelegate = object as! AppDelegate
-        appDelegate.memes.append(newMeme)
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(newMeme)
     }
     
     // Create a UIImage that combines the Image View and the Textfields
