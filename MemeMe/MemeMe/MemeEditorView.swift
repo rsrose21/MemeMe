@@ -18,6 +18,7 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var actionButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -188,5 +189,11 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         presentViewController(tbc, animated: true, completion: nil)
     }
+    
+    @IBAction func cancelEdit(sender: AnyObject) {
+        //cancel button pressed, send to Tab Bar Controller
+        self.navToTabBarController()
+    }
+    
 }
 
