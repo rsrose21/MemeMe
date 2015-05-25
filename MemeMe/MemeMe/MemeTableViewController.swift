@@ -21,6 +21,13 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.dataSource = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //set navigation bar title
+        self.navigationItem.title = "Sent Memes"
+        self.tableView!.reloadData()
+    }
+    
     //table delegate methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //identify number of rows in table based on number of Memes in array

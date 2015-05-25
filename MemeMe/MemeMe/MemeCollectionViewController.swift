@@ -26,7 +26,8 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDelegate, 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        //set navigation bar title
+        self.navigationItem.title = "Sent Memes"
         self.collectionView!.reloadData()
     }
     
