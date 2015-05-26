@@ -56,13 +56,13 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
         self.subscribeToKeyboardNotifications()
     }
     
-    // Unsubscribe
+    // MARK: Unsubscribe
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.unsubscribeFromKeyboardNotifications()
     }
 
-    //ImagePicker delegate methods
+    // MARK: ImagePicker delegate methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
     {
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
@@ -76,7 +76,6 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
     {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    //End ImagePicker delegate methods
     
     //helper method to open imagePicker
     func pickAnImage(type: NSString) {
@@ -88,11 +87,10 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
             //use photo library as source if camera disabled, album selected or the type is unknown
             imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         }
-        println(type)
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    //toolbar button actions
+    // MARK: toolbar button actions
     @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
         self.pickAnImage("camera")
     }
@@ -101,7 +99,7 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
         self.pickAnImage("album")
     }
     
-    //text field actions
+    // MARK: text field actions
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -138,7 +136,7 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
         }
     }
     
-    //Meme methods
+    // MARK: Meme methods
     @IBAction func shareMeme(sender: AnyObject) {
         let memeImage = generateMemedImage()
         self.saveMeme(memeImage)
@@ -186,13 +184,14 @@ class MemeEditorView: UIViewController, UITextFieldDelegate, UIImagePickerContro
     func navToTabBarController() {
         var tbc:UITabBarController
         tbc = self.storyboard?.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
-        
+        //dismiss Meme Editor so we don't have multiple instances of modal existing
+        self.dismissViewControllerAnimated(true, completion: nil)
         presentViewController(tbc, animated: true, completion: nil)
     }
     
     @IBAction func cancelEdit(sender: AnyObject) {
-        //cancel button pressed, send to Tab Bar Controller
-        self.navToTabBarController()
+        //cancel button pressed, dismiss Meme Editor
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

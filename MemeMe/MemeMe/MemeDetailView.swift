@@ -18,8 +18,7 @@ class MemeDetailViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        println(savedMeme.bottomText)
-        self.detailView!.image = savedMeme.memedImage
+        self.detailView.image = savedMeme.memedImage
     }
     
     

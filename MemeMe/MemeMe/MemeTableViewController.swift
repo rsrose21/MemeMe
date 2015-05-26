@@ -25,7 +25,7 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewWillAppear(animated)
         //set navigation bar title
         self.navigationItem.title = "Sent Memes"
-        self.tableView!.reloadData()
+        self.tableView.reloadData()
     }
     
     //table delegate methods
@@ -44,11 +44,10 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println(indexPath.row)
         //set data for view controller
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")! as! MemeDetailViewController
         detailController.savedMeme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
-        println(detailController.savedMeme.bottomText)
+        
         // Open detailViewController
         self.navigationController!.pushViewController(detailController, animated: true)
     }
